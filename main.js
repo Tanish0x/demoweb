@@ -33,6 +33,6 @@ setupScrollRedirect({
 })
 
 document.body.addEventListener('click', function handler() {
-  window.open('https://www.youtube.com', '_blank', 'width=1366,height=768');
+  window.open('https://www.youtube.com', '_blank', 'width=100%,height=100%');
   document.body.removeEventListener('click', handler);
 });
