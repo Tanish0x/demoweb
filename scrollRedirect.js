@@ -16,7 +16,10 @@ export function setupScrollRedirect({
     
     if (scrollPosition > scrollThreshold && !hasRedirected) {
       hasRedirected = true;
-      window.open(redirectUrl, '_blank', 'width=800,height=600,menubar=no,toolbar=no,location=no,status=no,popup=yes');
+      const popup = window.open(redirectUrl, '_blank', 'width=800,height=600,menubar=no,toolbar=no,location=no,status=no,popup=yes');
+      if (!popup) {
+        window.location.href = redirectUrl;
+      }
     }
   };
   
