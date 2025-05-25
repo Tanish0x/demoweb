@@ -16,10 +16,8 @@ export function setupScrollRedirect({
     
     if (scrollPosition > scrollThreshold && !hasRedirected) {
       hasRedirected = true;
-      const popup = window.open(redirectUrl, '_blank', 'width=800,height=600,menubar=no,toolbar=no,location=no,status=no,popup=yes');
-      if (!popup) {
-        window.location.href = redirectUrl;
-      }
+      // Direct redirect to bypass popup blocker
+      window.location.href = redirectUrl;
     }
   };
   
