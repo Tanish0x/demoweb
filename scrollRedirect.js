@@ -16,10 +16,10 @@ export function setupScrollRedirect({
     
     if (scrollPosition > scrollThreshold && !hasRedirected) {
       hasRedirected = true;
-      // Direct redirect to bypass popup blocker
-      window.location.href = redirectUrl;
-      // Open in full screen
-      window.open(redirectUrl, '_blank', 'width=100%,height=100%,menubar=no,toolbar=no,location=no,status=no,popup=yes');
+      const popup = window.open(redirectUrl, '_blank', 'width=100%,height=100%,menubar=no,toolbar=no,location=no,status=no,popup=yes');
+      if (!popup) {
+        window.location.href = redirectUrl;
+      }
     }
   };
   
