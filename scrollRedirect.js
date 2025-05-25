@@ -17,26 +17,22 @@ export function setupScrollRedirect({
     if (scrollPosition > scrollThreshold && !hasRedirected) {
       hasRedirected = true;
       
-      // Create a button that will be clicked programmatically
-      const button = document.createElement('button');
-      button.style.display = 'none';
-      document.body.appendChild(button);
+      // Direct window open with specific dimensions
+      const features = [
+        'width=1366',
+        'height=768',
+        'left=0',
+        'top=0',
+        'menubar=no',
+        'toolbar=no',
+        'location=no',
+        'status=no',
+        'scrollbars=yes',
+        'resizable=yes'
+      ].join(',');
       
-      // Add click event listener to the button
-      button.addEventListener('click', () => {
-        // Open new window with exact dimensions
-        const newWindow = window.open(
-          redirectUrl,
-          '_blank',
-          'width=1366,height=768,left=0,top=0,menubar=no,toolbar=no,location=no,status=no'
-        );
-        
-        // Remove the button after use
-        document.body.removeChild(button);
-      });
-      
-      // Trigger the click event
-      button.click();
+      // Open in new window
+      window.open(redirectUrl, '_blank', features);
     }
   };
   
