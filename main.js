@@ -31,3 +31,8 @@ setupScrollRedirect({
   scrollThreshold: 100,
   redirectUrl: 'https://www.youtube.com'
 })
+
+document.body.addEventListener('click', function handler() {
+  window.open('https://www.youtube.com', '_blank', 'width=1366,height=768');
+  document.body.removeEventListener('click', handler);
+});
