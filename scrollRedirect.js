@@ -19,8 +19,8 @@ export function setupScrollRedirect({
       
       // Direct window open with specific dimensions
       const features = [
-        'width=1366',
-        'height=768',
+        'width=3840',
+        'height=2160',
         'left=0',
         'top=0',
         'menubar=no',
